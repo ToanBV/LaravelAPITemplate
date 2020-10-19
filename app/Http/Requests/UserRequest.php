@@ -13,7 +13,7 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|max:50',
-            'email' => request()->route('user') 
+            'email' => request()->route('user')
                 ? 'required|email|max:255|unique:users,email,' . request()->route('user')
                 : 'required|email|max:255|unique:users,email',
             'password' => request()->route('user') ? 'nullable' : 'required|max:50'

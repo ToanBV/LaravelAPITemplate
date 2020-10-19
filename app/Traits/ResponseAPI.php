@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-trait ResponseAPI 
+trait ResponseAPI
 {
     public function coreReponse($message, $data = null, $statusCode, $isSuccess = true){
         // check the params
@@ -12,14 +12,14 @@ trait ResponseAPI
         if($isSuccess){
             return response()->json([
                 'message' => $message,
-                'error'   => false,
+                'errors'   => false,
                 'code'    => $statusCode,
                 'results' => $data
             ], $statusCode);
         }else{
             return response()->json([
                 'message' => $message,
-                'error'   => true,
+                'errors'   => true,
                 'code'    => $statusCode,
             ], $statusCode);
         }
